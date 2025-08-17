@@ -1,6 +1,6 @@
-import { fetchCompaniesData } from './src/services/api.js';
-import { filterCompaniesByCountryAndIndustry } from './src/utils/filters.js';
-import { sortCompanies } from './src/utils/sorters.js';
+import { fetchCompaniesData } from '../services/api.js';
+import { filterCompaniesByCountryAndIndustry } from '../utils/filters.js';
+import { sortCompanies } from '../utils/sorters.js';
 
 class CompanyDataApp {
     constructor() {
