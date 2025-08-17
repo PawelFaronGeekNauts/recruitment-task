@@ -1,6 +1,6 @@
-import { fetchCompaniesData } from '../services/api.js';
-import { filterCompaniesByCountryAndIndustry } from '../utils/filters.js';
-import { sortCompanies } from '../utils/sorters.js';
+import { fetchCompaniesData } from './services/api.js';
+import { filterCompaniesByCountryAndIndustry } from './utils/filters.js';
+import { sortCompanies } from './utils/sorters.js';
 
 class CompanyDataApp {
     constructor() {
@@ -92,6 +92,16 @@ class CompanyDataApp {
 
     renderCompanies(companies) {
         this.companiesList.innerHTML = '';
+        
+        if (companies.length === 0) {
+            this.companiesList.innerHTML = `
+            <li class="company-card">
+                <div>
+                    <p> No companies found for specific criteria</p>
+                </div>
+            </li>`;
+            return;
+        }
         
         companies.forEach(company => {
             const li = document.createElement('li');
