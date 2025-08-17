@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Data Explorer</title>
+    <meta name="description" content="Explore company data with filters and sorting">
+    <link rel="stylesheet" href="src/styles/main.css">
+</head>
+<body>
+    <main class="app-container">
+        <aside class="filters-panel" aria-label="Filters and sorting">
+            <div class="filters-section">
+                <h2>Filters</h2>
+                <div class="filter-group">
+                    <label for="countryFilter">Country:</label>
+                    <select id="countryFilter" aria-label="Filter by country">
+                        <option value="">All Countries</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="industryFilter">Industry:</label>
+                    <select id="industryFilter" aria-label="Filter by industry">
+                        <option value="">All Industries</option>
+                    </select>
+                </div>
+            </div>
+            <div class="sort-section">
+                <h2>Sort</h2>
+                <div class="sort-group">
+                    <label for="sortField">Sort by:</label>
+                    <select id="sortField" aria-label="Sort by field">
+                        <option value="name">Company Name</option>
+                        <option value="numberOfEmployees">Number of Employees</option>
+                    </select>
+                </div>
+                <div class="sort-group">
+                    <label for="sortOrder">Order:</label>
+                    <select id="sortOrder" aria-label="Sort order">
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </div>
+            </div>
+        </aside>
+        <section class="data-panel" aria-label="Company data">
+            <div id="loader" class="loader" role="status" aria-live="polite">Loading...</div>
+            <ul id="companiesList" class="companies-list" role="list"></ul>
+        </section>
+    </main>
+    <div id="companyModal" class="modal-overlay">
+        <div class="modal">
+            <button class="modal-close" aria-label="Zamknij">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title"></h2>
+            </div>
+            <div class="modal-content">
+                <div class="company-detail-row">
+                    <span class="detail-label">Country:</span>
+                    <span class="detail-value" data-field="country"></span>
+                </div>
+                <div class="company-detail-row">
+                    <span class="detail-label">Industry:</span>
+                    <span class="detail-value" data-field="industry"></span>
+                </div>
+                <div class="company-detail-row">
+                    <span class="detail-label">Employees:</span>
+                    <span class="detail-value" data-field="employees"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js" type="module"></script>
+</body>
+</html>

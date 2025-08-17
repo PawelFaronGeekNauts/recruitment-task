@@ -1,0 +1,83 @@
+@use 'sass:map';
+@use 'variables' as *;
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;  
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &.active {
+    display: flex;
+    opacity: 1;
+
+    .modal {
+      transform: translateY(0);
+    }
+  }
+}
+
+.modal {
+  background: $color-white;
+  padding: map.get($space, 'lg');
+  border-radius: map.get($radius, 'md');
+  box-shadow: 0 4px 6px $color-shadow;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+
+  &-close {
+    position: absolute;
+    top: map.get($space, 'md');
+    right: map.get($space, 'md');
+    background: none;
+    border: none;
+    font-size: map.get($text, 'xl');
+    cursor: pointer;
+    color: $color-text-light;
+  }
+
+  &-header {
+    margin-bottom: map.get($space, 'lg');
+    padding-bottom: map.get($space, 'md');
+    border-bottom: 1px solid $color-border;
+  }
+
+  &-title {
+    font-size: map.get($text, 'xl');
+    color: $color-text;
+    margin: 0;
+  }
+
+  &-content {
+    color: $color-text;
+  }
+}
+
+.company-detail-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: map.get($space, 'md');
+  margin-bottom: map.get($space, 'md');
+}
+
+.detail {
+  &-label {
+    font-weight: 500;
+    color: $color-text-light;
+  }
+
+  &-value {
+    color: $color-text;
+  }
+}
