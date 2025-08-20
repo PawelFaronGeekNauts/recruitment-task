@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "live-server src --port=3000 --no-browser",
+    "start": "sass src/styles:src/styles --style compressed && live-server src --port=3000 --no-browser",
     "sass": "sass src/styles:src/styles --watch",
     "sass:build": "sass src/styles:src/styles --style compressed"
   },
